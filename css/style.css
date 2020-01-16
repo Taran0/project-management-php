@@ -1,0 +1,16 @@
+#main-nav {
+    height: 3em;
+}
+
+#main-nav .navbar-brand {
+    position: absolute;
+    top: -5px;
+}
+
+#main-nav .navbar-brand img {
+    height: 3em;
+}
+
+#main-nav .navbar-brand p {
+    
+}
