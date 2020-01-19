@@ -20,14 +20,14 @@ try{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>ProjectMan</title>
+    <title>Tasks</title>
 </head>
 <body>
     <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark py-4">
         <div class="container">
             <a href="index.html" class="navbar-brand">
                 <img src="img/logo.png" alt="">
-                <p class="d-inline mb-2">ProjectMaster</p>
+                <p class="d-inline mb-2">ProductivityMaster</p>
             </a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
