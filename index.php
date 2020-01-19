@@ -88,7 +88,19 @@ try{
 
             </tbody>
         </table>
+        
+        <i>
+        <?php
+        try{
+            $dbconn = new PDO($dsn, $username, $password);
+            echo "connection was successful!";
 
+        }catch(PDO_Excepiton $e){
+            echo "CONNECTION FAILED!!!";
+            echo $e->getMessage();
+        }
+        ?>
+    </i>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
