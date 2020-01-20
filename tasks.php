@@ -1,6 +1,7 @@
 <?php
 require_once "include/db.php";
 $project_id = $_GET['id'];
+$project_name = $_GET['projectname'];
 
 ?>
 
@@ -21,10 +22,10 @@ $project_id = $_GET['id'];
         <div class="container">
             <a href="index.html" class="navbar-brand">
                 <img src="img/logo.png" alt="">
-                <p class="d-inline mb-2">ProductivityMaster</p>
+                <p class="d-inline mb-2">ProjectMaster</p>
             </a>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Active</a>
                     <div class="dropdown-menu">
@@ -37,12 +38,17 @@ $project_id = $_GET['id'];
         </div>
     </nav>
     <div class="container">
-        <p>
-        <?php
+        <br>
+        <span class="m-0">Tasks of</span>
+        <div class="row">
+        <h1 class="display-4 col d-inline"><?php echo $project_name; ?></h1>
+        <a class="text-secondary col text-right align-text-bottom pt-4" href="#">
+            <i class="fas fa-plus-square fa-3x"></i>
+        </a>
 
-?>
-        </p>
-        <h1 class="display-4">Tasks</h1>
+    </div>
+        
+
         <table class="table table-hover table-striped table-sm">
             <thead class="thead-dark">
                 <tr>
@@ -57,11 +63,12 @@ $project_id = $_GET['id'];
             <tbody>
                 <?php
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$sql = "SELECT * FROM tasks WHERE id={$project_id}";
+$sql = "SELECT * FROM tasks WHERE project_id={$project_id}";
 $stmt = $connection->query($sql);
+$i = 1;
 
 while ($row = $stmt->fetch()) {
-    $i = 1;
+
     $id = $row['id'];
     $name = $row['task_name'];
     $deadline = $row['task_deadline'];
@@ -76,6 +83,7 @@ while ($row = $stmt->fetch()) {
                                 <td><a href="include/do.php?id=" class="btn btn-outline-primary btn-block btn-sm">Edit</a></td>
                             </tr>
                         <?php
+$i++;
 }
 ?>
 
