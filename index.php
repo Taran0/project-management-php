@@ -13,7 +13,7 @@ require_once "include/db.php";
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Tasks</title>
+    <title>Projects</title>
 </head>
 <body>
     <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark py-4">
@@ -50,10 +50,10 @@ require_once "include/db.php";
             <tbody>
                 <?php
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$sql = "SELECT * FROM tasks";
+$sql = "SELECT * FROM projects";
 $stmt = $connection->query($sql);
 
-while ($row = $stmt->fetch()) {
+while ($row = $stmt->fetch()) { 
     $i = 1;
     $id = $row['id'];
     $name = $row['project_name'];
