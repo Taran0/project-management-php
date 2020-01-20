@@ -4,6 +4,8 @@ $username = "khnjazycqbcmbr";
 $password = "864957774e6190ba0f79376fde31b9dcffc2af30c1808e62a11d6135d05f9fa3";
 $options = [];
 
+$connection = new PDO($dsn, $username, $password, $options);
+
 // $dsn = "pgsql:host=localhost;dbname=projectman";
 // $username = "postgres";
 // $password = "demo";

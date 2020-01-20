@@ -1,5 +1,6 @@
 <?php
 require_once "include/db.php";
+$project_id = $_GET['id'];
 
 ?>
 
@@ -36,13 +37,19 @@ require_once "include/db.php";
         </div>
     </nav>
     <div class="container">
-        <h1 class="display-4">Projects</h1>
+        <p>
+        <?php
+
+?>
+        </p>
+        <h1 class="display-4">Tasks</h1>
         <table class="table table-hover table-striped table-sm">
             <thead class="thead-dark">
                 <tr>
                     <th>No.</th>
-                    <th>Project name</th>
+                    <th>Task name</th>
                     <th>Deadline</th>
+                    <th>Task status</th>
                     <th>Do</th>
                     <th>Szerkeszt</th>
                 </tr>
@@ -50,22 +57,23 @@ require_once "include/db.php";
             <tbody>
                 <?php
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$sql = "SELECT * FROM tasks";
+$sql = "SELECT * FROM tasks WHERE id={$project_id}";
 $stmt = $connection->query($sql);
 
 while ($row = $stmt->fetch()) {
     $i = 1;
     $id = $row['id'];
-    $name = $row['project_name'];
-    $deadline = $row['project_deadline'];
-
+    $name = $row['task_name'];
+    $deadline = $row['task_deadline'];
+    $status = $row['task_status'];
     ?>
                             <tr>
                                 <th class="align-middle" scope="row"><?php echo $i; ?></th>
                                 <td class="align-middle"><?php echo $name; ?></td>
                                 <td class="align-middle"><?php echo $deadline; ?></td>
-                                <td><a href="include/tasks.php?id=<?php echo $id; ?>" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
-                                <td><a href="include/do.php?id=<?php echo $id; ?>" class="btn btn-outline-primary btn-block btn-sm">Edit</a></td>
+                                <td class="align-middle"><?php echo $status; ?></td>
+                                <td><a href="include/do.php?id=" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
+                                <td><a href="include/do.php?id=" class="btn btn-outline-primary btn-block btn-sm">Edit</a></td>
                             </tr>
                         <?php
 }
