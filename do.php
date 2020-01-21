@@ -65,7 +65,7 @@ if (isset($_GET['taskid']) && isset($_GET['taskname'])) {
                     <button id="reset" onclick="reset()">Reset</button>
                 </div>
             </div>
-            <div class="card-footer text-muted">
+            <div class="card-footer bg-info text-light">
                 fragments...
             </div>
         </div>
