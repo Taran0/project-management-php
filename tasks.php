@@ -145,7 +145,7 @@ while ($row = $stmt->fetch()) {
                                 <th class="align-middle" scope="row"><?php echo $i; ?></th>
                                 <td class="align-middle"><?php echo $name; ?></td>
                                 <td class="align-middle"><?php echo $status; ?></td>
-                                <td><a href="include/do.php?id=" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
+                                <td><a href="do.php?taskid=<?php echo $id; ?>&taskname=<?php echo $name; ?>" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
                                 <td><a href="tasks.php?id=<?php echo $id; ?>&operate=delete" class="btn btn-outline-primary btn-block btn-sm">Delete</a></td>
                             </tr>
                         <?php
