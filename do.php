@@ -60,9 +60,9 @@ if (isset($_GET['taskid']) && isset($_GET['taskname'])) {
                 <div class="display-4" id="display">
                     00:00:00
                 </div>
-                <div class="buttons">
-                    <button class="btn btn-warning btn-sm" type="button" id="startStop" onclick="startStop()">Start</button>
-                    <button class="btn btn-secondary btn-sm" type="button" id="reset" onclick="reset()">Reset</button>
+                <div class="buttons pt-1">
+                    <button class="btn btn-outline-dark btn-sm" type="button" id="startStop" onclick="startStop()">Start</button>
+                    <button class="btn btn-outline-dark btn-sm" type="button" id="reset" onclick="reset()">Reset</button>
                 </div>
             </div>
             <div class="card-footer bg-info text-light">
