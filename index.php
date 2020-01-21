@@ -132,7 +132,7 @@ while ($row = $stmt->fetch()) {
                                 <th class="align-middle" scope="row"><?php echo $i; ?></th>
                                 <td class="align-middle"><?php echo $name; ?></td>
                                 <td class="align-middle"><?php echo $deadline; ?></td>
-                                <td><a href="tasks.php?id=<?php echo $id; ?>&projectname=<?php echo $name; ?>" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
+                                <td><a href="tasks.php?id=<?php echo $id; ?>&projectname=<?php echo $name; ?>" class="btn btn-outline-danger btn-block btn-sm">Tasks</a></td>
                                 <td><a href="index.php?id=<?php echo $id; ?>&operate=delete" class="btn btn-outline-info btn-block btn-sm">Delete</a></td>
                             </tr>
                         <?php

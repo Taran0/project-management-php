@@ -26,7 +26,7 @@ if (isset($_GET['taskid']) && isset($_GET['taskname'])) {
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/script.js"></script>
-    <title>Doing <?php echo $task_name; ?></title>
+    <title>In progress: <?php echo $task_name; ?></title>
 </head>
 <body>
     <!-- navbar -->
@@ -51,8 +51,10 @@ if (isset($_GET['taskid']) && isset($_GET['taskname'])) {
     </nav>
     <div class="container py-4 col-6">
     <div class="card text-center">
-            <div class="card-header bg-danger text-white font-weight-bold h5">
-                Doing <?php echo $task_name; ?>
+            <div class="card-header bg-danger text-white">
+                <div>In progress: </div>
+                <div class="h2"><?php echo $task_name; ?></div>
+                
             </div>
             <div class="card-body">
                 <div class="display-4" id="display">
