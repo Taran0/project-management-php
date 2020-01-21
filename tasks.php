@@ -13,6 +13,21 @@ if (isset($_GET['id']) && isset($_GET['projectname'])) {
     $project_name = $_COOKIE['projectName'];
 }
 
+if(isset($_GET['operate'])){
+    if($_GET['operate'] == 'delete'){
+        $connection;
+    
+        $sql = "DELETE FROM tasks WHERE id={$_GET['id']}";
+    
+        $execute = $connection->query($sql);
+
+        if($execute){
+            $notification = "<span>Record has been deleted successfully</span>";
+        }
+
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +45,7 @@ if (isset($_GET['id']) && isset($_GET['projectname'])) {
 <body>
     <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark py-4">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 <img src="img/logo.png" alt="">
                 <p class="d-inline mb-2">ProjectMaster</p>
             </a>
@@ -61,6 +76,9 @@ if (isset($_GET['id']) && isset($_GET['projectname'])) {
 
         </div>
     <?php
+if(isset($notification)){
+    echo $notification;
+}
 if (isset($_POST['submit'])) {
     if (!empty($_POST['taskName']) && !empty($_POST['taskStatus'])) {
         $taskName = $_POST['taskName'];
@@ -107,7 +125,7 @@ if (isset($_POST['submit'])) {
                     <th>Task name</th>
                     <th>Task status</th>
                     <th>Do</th>
-                    <th>Szerkeszt</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -128,7 +146,7 @@ while ($row = $stmt->fetch()) {
                                 <td class="align-middle"><?php echo $name; ?></td>
                                 <td class="align-middle"><?php echo $status; ?></td>
                                 <td><a href="include/do.php?id=" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
-                                <td><a href="include/do.php?id=" class="btn btn-outline-primary btn-block btn-sm">Edit</a></td>
+                                <td><a href="tasks.php?id=<?php echo $id; ?>&operate=delete" class="btn btn-outline-primary btn-block btn-sm">Delete</a></td>
                             </tr>
                         <?php
 $i++;

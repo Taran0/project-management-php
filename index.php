@@ -1,6 +1,22 @@
 <?php
 require_once "include/db.php";
 
+if(isset($_GET['operate'])){
+    if($_GET['operate'] == 'delete'){
+        $connection;
+    
+        $sql = "DELETE FROM projects WHERE id={$_GET['id']}";
+    
+        $execute = $connection->query($sql);
+
+        if($execute){
+            $notification = "<span>Record has been deleted successfully</span>";
+        }
+
+    }
+}
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +35,7 @@ require_once "include/db.php";
     <!-- navbar -->
     <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark py-4">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 <img src="img/logo.png" alt="">
                 <p class="d-inline mb-2">ProjectMaster</p>
             </a>
@@ -44,6 +60,9 @@ require_once "include/db.php";
             </a>
         </div>
 <?php
+    if(isset($notification)){
+        echo $notification;
+    }
     if (isset($_POST['submit'])) {
         if (!empty($_POST['projectName']) && !empty($_POST['projectStatus']) && !empty($_POST['projectStartTime']) && 
         !empty($_POST['projectDeadline'])) {
@@ -93,7 +112,7 @@ require_once "include/db.php";
                     <th>Project name</th>
                     <th>Deadline</th>
                     <th>Do</th>
-                    <th>Szerkeszt</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -114,7 +133,7 @@ while ($row = $stmt->fetch()) {
                                 <td class="align-middle"><?php echo $name; ?></td>
                                 <td class="align-middle"><?php echo $deadline; ?></td>
                                 <td><a href="tasks.php?id=<?php echo $id; ?>&projectname=<?php echo $name; ?>" class="btn btn-outline-danger btn-block btn-sm">Do</a></td>
-                                <td><a href="" class="btn btn-outline-info btn-block btn-sm">Edit</a></td>
+                                <td><a href="index.php?id=<?php echo $id; ?>&operate=delete" class="btn btn-outline-info btn-block btn-sm">Delete</a></td>
                             </tr>
                         <?php
 $i++;
