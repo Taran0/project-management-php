@@ -54,15 +54,15 @@ if (isset($_GET['taskid']) && isset($_GET['taskname'])) {
             <div class="card-header bg-danger text-white">
                 <div>In progress: </div>
                 <div class="h2"><?php echo $task_name; ?></div>
-                
+
             </div>
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div class="display-4" id="display">
                     00:00:00
                 </div>
                 <div class="buttons">
-                    <button id="startStop" onclick="startStop()">Start</button>
-                    <button id="reset" onclick="reset()">Reset</button>
+                    <button class="btn btn-warning btn-sm" type="button" id="startStop" onclick="startStop()">Start</button>
+                    <button class="btn btn-secondary btn-sm" type="button" id="reset" onclick="reset()">Reset</button>
                 </div>
             </div>
             <div class="card-footer bg-info text-light">
@@ -70,7 +70,7 @@ if (isset($_GET['taskid']) && isset($_GET['taskname'])) {
             </div>
         </div>
 
-        
+
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
